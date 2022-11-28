@@ -62,12 +62,12 @@ router.post('/:userName/favourites', asyncHandler(async (req, res) => {
     await user.save(); 
     res.status(201).json(user); 
   }));
-
-  router.get('/:userName/favourites', asyncHandler( async (req, res) => {
-    const userName = req.params.userName;
-    const user = await User.findByUserName(userName).populate('favourites');
-    res.status(200).json(user.favourites);
-  }));
-
+//get favourites
+  
+router.get('/:userName/favourites', asyncHandler( async (req, res) => {
+  const userName = req.params.userName;
+  const user = await User.findByUserName(userName).populate('favourites');
+  res.status(200).json(user.favourites);
+}));
   
 export default router;
