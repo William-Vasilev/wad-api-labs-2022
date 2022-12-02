@@ -1,5 +1,5 @@
 import './db';
-//import './seedData';
+import './seedData';
 import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
@@ -30,14 +30,15 @@ app.use(express.json());
 
 //session middleware
 app.use(passport.initialize());
+app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
 
-app.use('/api/movies', moviesRouter);
+//app.use('/api/movies', moviesRouter);
 
 app.use('/api/genres', genresRouter);
 
 app.use('/api/users', usersRouter);
 
-app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+
 
 app.use(errHandler);
 
