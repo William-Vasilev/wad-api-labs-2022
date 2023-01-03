@@ -16,11 +16,18 @@ import TVPage from "./pages/tvPage.js";
 import FavouriteTVsPage from "./pages/favouriteTvsPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
-import MoviesContextProvider from "./contexts/moviesContext";
+import MoviesContextProvider from "./moviesContext";
 import TVsContextProvider from "./contexts/tvsContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import AddTVReviewPage from './pages/addTvReviewPage'
 import './db';
+import { PublicPage} from "./pages";
+import LoginPage from "./loginPage";
+import SignUpPage from "./signUpPage";
+import AuthProvider from "./contexts/authContext";
+import PrivateRoute from "./privateRoute";
+import AuthHeader from "./authHeader";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,8 +60,37 @@ const App = () => {
             <Route path="/TVReviews/form" element={<AddTVReviewPage/>} />
             <Route path="/TVReviews/:id" element={ <TVReviewPage /> } />
             <Route path="/TVs/" element={<TVPage />} />
+
+            <Route path="/public" element={<PublicPage />} /> 
+            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
             </Routes>
         </MoviesContextProvider>
+
+        {/* <AuthProvider>
+          <AuthHeader />
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/movies/:id">Public</Link>
+            </li>
+          
+            <li>
+              <Link to="/TVs/">Profile</Link>
+            </li>
+          </ul>
+          <Switch>
+            <Route path="/movie" component={MoviePage} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/login" component={LoginPage} />
+            <PrivateRoute path="/tv" component={TVPage} />
+        
+            <Redirect from="*" to="/" />
+          </Switch>
+        </AuthProvider> */}
 
 
         {/* <TVsContextProvider>
