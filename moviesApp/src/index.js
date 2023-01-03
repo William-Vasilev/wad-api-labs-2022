@@ -20,6 +20,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import TVsContextProvider from "./contexts/tvsContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import AddTVReviewPage from './pages/addTvReviewPage'
+import './db';
 
 const queryClient = new QueryClient({
   defaultOptions: {
