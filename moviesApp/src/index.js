@@ -20,7 +20,7 @@ import MoviesContextProvider from "./moviesContext";
 import TVsContextProvider from "./contexts/tvsContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import AddTVReviewPage from './pages/addTvReviewPage'
-import './db';
+
 import { PublicPage} from "./pages";
 import LoginPage from "./loginPage";
 import SignUpPage from "./signUpPage";

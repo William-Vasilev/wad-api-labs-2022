@@ -16,4 +16,6 @@
   "dependencies": {
     "dotenv": "^16.0.3"
   }
+  ,
+  "proxy":"http://localhost:8080"
 }
